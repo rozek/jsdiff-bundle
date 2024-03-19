@@ -1,0 +1,32 @@
+{
+  "name": "jsdiff-bundle",
+  "version": "0.0.1",
+  "description": "a jsdiff bundle that can be used in no-build environments",
+  "keywords": [
+    "jsdiff"
+  ],
+  "author": "Andreas Rozek <a.rozek@gmx.de> (https://www.rozek.de/)",
+  "license": "MIT",
+  "homepage": "https://github.com/rozek/jsdiff-bundle#readme",
+  "bugs": {
+    "url": "https://github.com/rozek/jsdiff-bundle/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist && tsc && vite build --sourcemap true --assetsDir . && rm ./dist/index.html && mv ./dist/index.js ./dist/jsdiff-bundle.js && mv ./dist/index.js.map ./dist/jsdiff-bundle.js.map && sed -i '' 's\"sourceMappingURL=index.js.map\"sourceMappingURL=jsdiff-bundle.js.map\"g' ./dist/jsdiff-bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rozek/jsdiff-bundle.git"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.0.9",
+    "rimraf": "^3.0.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6"
+  },
+  "dependencies": {
+    "diff": "^5.2.0"
+  }
+}
